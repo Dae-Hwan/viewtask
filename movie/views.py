@@ -8,9 +8,9 @@ class ActorView(View):
     def get(self, request):
         results = []
         actors = Actor.objects.all()
-        for actor in acotors:
+        for actor in actors:
             movie_list = []
-            movies = actor.movie.all()
+            movies = actor.movies.all()
             for movie in movies:
                 movie_list.append({'movie_name': movie.title}) 
             results.append(
@@ -22,4 +22,4 @@ class ActorView(View):
                     }
             )
 
-            return JsonResponse({'results': results}, status = 200)
+        return JsonResponse({'results': results}, status = 200)
